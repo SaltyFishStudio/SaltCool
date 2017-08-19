@@ -53,6 +53,8 @@
   <ItemGroup>
      <Compile Include="Assets\scripts\background_maker.cs" />
      <Compile Include="Assets\scripts\camerfollowing.cs" />
+     <Compile Include="Assets\scripts\coin.cs" />
+     <Compile Include="Assets\scripts\coin_maker.cs" />
      <Compile Include="Assets\scripts\floor_maker.cs" />
      <Compile Include="Assets\scripts\playerMoving.cs" />
      <Compile Include="Assets\scripts\topfloor_maker.cs" />
