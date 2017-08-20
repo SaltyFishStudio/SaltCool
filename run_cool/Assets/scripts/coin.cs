@@ -8,7 +8,7 @@ public class coin : MonoBehaviour {
     private GameObject player;
 
 	void Start () {
-        StartCoroutine(WaitTime(3.0f));
+        
 		
 	}
     void OnTriggerEnter(Collider otherCollider)
@@ -24,16 +24,7 @@ public class coin : MonoBehaviour {
  
     }
 
-    IEnumerator WaitTime(float frequency)
-    {
 
-        for (float timer = 0; timer < frequency; timer = timer + Time.deltaTime)
-        {
-            yield return 0;
-
-        }
-
-    }
 
 
 	// Update is called once per frame
