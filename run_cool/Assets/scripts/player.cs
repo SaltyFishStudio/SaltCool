@@ -96,6 +96,7 @@ public class player : MonoBehaviour {
                 rb.velocity = new Vector3(movingSpeed, rb.velocity.y, 0);
             }
 
+            /* 按住ctrl键加速 被吃到加速器加速取代
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 maxSpeed = fastmovingSpeed;
@@ -104,7 +105,7 @@ public class player : MonoBehaviour {
             {
                 maxSpeed = normalmovingSpeed;
             }
-
+            */
 
             if (movingSpeed >= maxSpeed)
             {

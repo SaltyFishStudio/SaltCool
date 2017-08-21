@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 
 
     public GameObject Player;
-
+    public GameObject addspeedtool;
 
     private float timer = 0;
 
@@ -47,6 +47,11 @@ public class GameController : MonoBehaviour {
             }
         }
 
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Instantiate(addspeedtool,Vector3.zero,Quaternion.identity);
+        }
 
 
 
