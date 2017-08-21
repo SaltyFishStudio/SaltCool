@@ -84,12 +84,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\AddASpeedTool.cs" />
     <Compile Include="Assets\scripts\background_maker.cs" />
     <Compile Include="Assets\scripts\camerfollowing.cs" />
     <Compile Include="Assets\scripts\coin.cs" />
     <Compile Include="Assets\scripts\coin_maker.cs" />
     <Compile Include="Assets\scripts\floor_maker.cs" />
-    <Compile Include="Assets\scripts\playerMoving.cs" />
+    <Compile Include="Assets\scripts\GameController.cs" />
+    <Compile Include="Assets\scripts\HigherJumpingArea.cs" />
+    <Compile Include="Assets\scripts\obstacle.cs" />
+    <Compile Include="Assets\scripts\player.cs" />
     <Compile Include="Assets\scripts\topfloor_maker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
