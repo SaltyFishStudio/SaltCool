@@ -13,9 +13,10 @@ public class GameController : MonoBehaviour {
 
     public GameObject Player;
     public GameObject addspeedtool;
-
+	public GameObject gameEndUI;
+	private GameObject tempEndUI;
     private float timer = 0;
-
+	private bool isGameOver=false ;
 	void Start () {
         Player.GetComponent<player>().onCollection = OnCollection;
 
@@ -28,8 +29,11 @@ public class GameController : MonoBehaviour {
 
     void GameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
- 
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		//实例化结束UI，父级设为Canvas
+		tempEndUI = Instantiate (gameEndUI);
+		tempEndUI.GetComponent <Transform > ().SetParent (GameObject.Find ("Canvas").GetComponent <Transform > (), true);
+		isGameOver = true ;
     }
 
 	
@@ -43,7 +47,8 @@ public class GameController : MonoBehaviour {
             }
             else
             {
-                GameOver();
+				if(isGameOver==false){
+				GameOver();
             }
         }
 
@@ -58,4 +63,5 @@ public class GameController : MonoBehaviour {
 
 		
 	}
+}
 }
