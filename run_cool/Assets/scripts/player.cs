@@ -15,11 +15,11 @@ public class player : MonoBehaviour {
 
     public float jumpingSpeed = 10.0f;
     public float movingSpeed = 0.0f;     //初始移动速度
-    public float normalmovingSpeed = 8f;
+    public float normalmovingSpeed = 8f;  //正常稳定速度
     public float fastmovingSpeed = 16f;
 	public float Acceleration = 2f;     //移动加速度
     public int timesOfjump = 2;                //几段跳
-    public float maxSpeed = 8f;
+    public float maxSpeed = 8f;             //最大速度，吃加速器会发生改变 详情参见 AddSpeedTool脚本
 
 
     public bool playerIsAlive = true;   //player是否存活
@@ -72,6 +72,7 @@ public class player : MonoBehaviour {
 
     void Update()
     {
+        Debug.Log(maxSpeed);
         rb.AddForce(0, -100, 0); //加快下落速度
         if (playerIsAlive == false)
         {
@@ -96,6 +97,7 @@ public class player : MonoBehaviour {
                 rb.velocity = new Vector3(movingSpeed, rb.velocity.y, 0);
             }
 
+            /* 按住ctrl键加速 被吃到加速器加速取代 
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 maxSpeed = fastmovingSpeed;
@@ -104,7 +106,7 @@ public class player : MonoBehaviour {
             {
                 maxSpeed = normalmovingSpeed;
             }
-
+            */
 
             if (movingSpeed >= maxSpeed)
             {
