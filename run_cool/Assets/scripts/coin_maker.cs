@@ -42,7 +42,7 @@ public class coin_maker : MonoBehaviour {
         }
 
 
-
+        //把金币序列添加进待调用的列表里
         coinPosListPerfabs.Add(coinPosList1);
         coinPosListPerfabs.Add(coinPosList2);
         coinPosListPerfabs.Add(coinPosList3);
@@ -53,7 +53,7 @@ public class coin_maker : MonoBehaviour {
        
 
     }
-
+    /* 隔段时间生成一次金币  被隔段位移生成一次金币替代
     IEnumerator WaitTime(float frequency)
     {
 
@@ -64,6 +64,26 @@ public class coin_maker : MonoBehaviour {
         }
  
     }
+    */
+
+
+    //隔段位移生成一次金币
+    IEnumerator WaitPlayerMove(float coindistance)
+    {
+
+        float thisplayerPos = player.transform.position.x;
+
+        //等待player位置和上面获取的位置之间的距离超过coindistance
+        while (player.transform.position.x - thisplayerPos < coindistance)
+        {
+            yield return 0 ;
+        }
+
+    }
+
+
+
+
 
     IEnumerator SetCoinArray()
     {
@@ -73,15 +93,17 @@ public class coin_maker : MonoBehaviour {
 
         do
         {
+
+            playerPos = player.transform.position.x;    //获得当前时间player的x位置
             List<Vector3> coinPosList = coinPosListPerfabs[Random.Range(0, coinPosListPerfabs.Count)];
-            float coinPosY = Random.Range(-3.0f, 3.0f);
+            float coinPosY = Random.Range(-3.0f, 1.0f); //随机金币阵列的高度
             for (int i = 0; i < coinPosList.Count; i++)
             {
 
                 Instantiate(coin, coinPosList[i] + new Vector3(playerPos + 20, coinPosY, 0), Quaternion.identity);
             }
 
-            yield return (WaitTime(3.0f));
+            yield return (WaitPlayerMove(20.0f));
         }
         while (true);
  

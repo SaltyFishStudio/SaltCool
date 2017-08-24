@@ -76,7 +76,7 @@ public class player : MonoBehaviour {
         rb.AddForce(0, -100, 0); //加快下落速度
         if (playerIsAlive == false)
         {
-            transform.GetComponent<BoxCollider>().enabled = false;
+            transform.GetComponent<SphereCollider>().enabled = false;
             deadjumptimer += Time.deltaTime;
             if ( deadjumptimer < 0.5)
             {

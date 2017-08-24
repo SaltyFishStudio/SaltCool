@@ -13,7 +13,7 @@ public class floor_maker : MonoBehaviour {
     bool isInitialfloor = false;
     public int InitialfloorNum = 10;
     public float InitialDistance = 4;
-    public float floorDistance = 1;
+    public float floorDistance = 0;
     public Transform Runner;
     public float offsetX = 10f;
     public float height = -5f;
@@ -45,8 +45,16 @@ public class floor_maker : MonoBehaviour {
             }
         }
 
-
-        floorDistance = Random.Range(0, 1 + (Time.realtimeSinceStartup >7 ? 7 : Time.realtimeSinceStartup));
+        if (Time.realtimeSinceStartup > 60 && Time.realtimeSinceStartup <= 90)
+        {
+            floorDistance = Random.Range(0, 5);
+        }
+        else if (Time.realtimeSinceStartup > 90)
+        {
+            floorDistance = Random.Range(0, 8);
+ 
+        }
+        
 
 
         if (Runner.position.x - floorQueue.Peek().position.x > 12f)
