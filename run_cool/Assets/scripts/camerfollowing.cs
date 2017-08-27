@@ -17,9 +17,12 @@ public class camerfollowing : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        Vector3 newPosition = new Vector3(TargetObject.transform.position.x + offsetX, 
-                                         TargetObject.transform.position.y + offsetY,
-                                         transform.position.z + offsetZ);
-        transform.position = Vector3.Lerp(transform.position, newPosition, followingSpeed * Time.deltaTime);
+        if (TargetObject.GetComponent<player>().playerIsAlive == true)
+        {
+            Vector3 newPosition = new Vector3(TargetObject.transform.position.x + offsetX,
+                                             TargetObject.transform.position.y + offsetY,
+                                             transform.position.z + offsetZ);
+            transform.position = Vector3.Lerp(transform.position, newPosition, followingSpeed * Time.deltaTime);
+        }
 	}
 }

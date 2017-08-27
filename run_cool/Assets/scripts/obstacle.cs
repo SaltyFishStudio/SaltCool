@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class obstacle : MonoBehaviour {
+public class Obstacle : MonoBehaviour {
+
+    private GameObject player;
+
 
 	// Use this for initialization
 
-    void OnTriggerEnter(Collider otherCollider)
+    protected virtual void OnTriggerEnter(Collider otherCollider)
     {
         //碰到该物体后扣血
         if (otherCollider.tag == "Player")
@@ -25,13 +28,7 @@ public class obstacle : MonoBehaviour {
             
 
             
-            /*
-            for (float timer = 0; timer < 0.5f; timer += Time.deltaTime)
-            {
-                otherCollider.GetComponent<Transform>().position = otherCollider.GetComponent<Transform>().position + new Vector3(-1,1,0);
- 
-            }
-            */
+
         }
     }
     IEnumerator WaitAndSetCollider(float timer)
@@ -44,12 +41,12 @@ public class obstacle : MonoBehaviour {
 
 
 
-    void OnTriggerStay(Collider otherCollider)
+    protected virtual void OnTriggerStay(Collider otherCollider)
     {
 
     }
 
-    void OnTriggerExit(Collider otherCollider)
+    protected virtual void OnTriggerExit(Collider otherCollider)
     {
         //碰到该物体后扣血
         if (otherCollider.tag == "Player")
@@ -66,12 +63,19 @@ public class obstacle : MonoBehaviour {
 
 
 
-	void Start () {
+    protected virtual void Start()
+    {
+        player = GameObject.Find("player");
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+    protected virtual void Update()
+    {
+        if (player.transform.position.x - transform.position.x > 10)
+        {
+            Destroy(transform.gameObject);
+        }
 		
 	}
 }
