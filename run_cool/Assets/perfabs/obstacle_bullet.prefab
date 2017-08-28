@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ebb27e44ed31042af85fb510c6db96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boom_effect: {fileID: 1115603576766394, guid: 1d2cf9c2c90602c4cb5fda073c7d84ba,
+    type: 2}
 --- !u!136 &136977110512785746
 CapsuleCollider:
   m_ObjectHideFlags: 1
